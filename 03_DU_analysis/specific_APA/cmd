@@ -1,0 +1,40 @@
+Rscript ../bin/compare_tissue_vs_population.R -i /APA/AFreview/PAC_3seq_hq/region_dis_addStrand/PDUI/SRP115041_ab22.intersect.3UTR.annoTranscript_ratio.tag.PDUI_rmdup -g /APA/PAC_3seq_diffana/S1960.tissue.txt -s /APA/PAC_3seq_diffana/S1960.subpop.txt -o Tissue_vs_Population_Tau
+
+Rscript ../bin/compare_tissue_vs_population3.R -i /APA/AFreview/PAC_3seq_hq/region_dis_addStrand/PDUI/SRP115041_ab22.intersect.3UTR.annoTranscript_ratio.tag.PDUI_rmdup -p /APA/PAC_3seq_diffana/S1960.subpop.txt -t /APA/PAC_3seq_diffana/S1960.tissue.txt -o Tissue_vs_Population_Tau --topN 50 \
+>   --tau_cut 0.5 \
+>   --fdr 0.05 \
+> --cores 8
+读取PDUI矩阵...
+读取亚群分组...
+读取组织分组...
+样本数: 1960, 亚群数: 7, 组织数: 8
+进行组织Kruskal-Wallis检验...
+  |======================================================================| 100%
+
+进行亚群Kruskal-Wallis检验...
+  |======================================================================| 100%
+
+组织显著转录本: 8851, 亚群显著转录本: 3229
+组织效应更强: 7900 (22.0%), 亚群效应更强: 5551 (15.4%), 近似相等: 22528 (62.6%)
+配对Wilcoxon检验 P值: 4.06887e-84
+四象限计数 (阈值=0.5):
+
+               Both                None Population-specific     Tissue-specific
+                800               34120                 426                 633
+绘制密度分布图...
+There were 50 or more warnings (use warnings() to see the first 50)
+密度图已保存
+绘制四色散点图...
+四色散点图已保存
+绘制Top ΔTau热图...
+热图已保存
+There were 12 warnings (use warnings() to see them)
+
+===== 分析完成 =====
+输出文件:
+  -  Tissue_vs_Population_Tau _Tau_Comparison.txt (完整结果表)
+  -  Tissue_vs_Population_Tau _Tau_Density.pdf (密度分布图)
+  -  Tissue_vs_Population_Tau _Quadrant_Scatter.pdf (四色散点图)
+  -  Tissue_vs_Population_Tau _Top 50 _Heatmap.pdf (热图)
+
+Rscript ../bin/plot_ecdf_box.R -i /APA/AFreview/PAC_3seq_hq/region_dis_addStrand/PDUI/SRP115041_ab22.intersect.3UTR.annoTranscript_ratio.tag.PDUI_rmdup -p /APA/PAC_3seq_diffana/S1960.subpop.txt -t /APA/PAC_3seq_diffana/S1960.tissue.txt -o Tissue_vs_Population_Tau

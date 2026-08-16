@@ -1,0 +1,34 @@
+Rscript ../bin/specific_cluster.R -i /APA/AFreview/PAC_3seq_hq/region_dis_addStrand/PDUI/SRP115041_ab22.intersect.3UTR.annoTranscript_ratio.tag.PDUI_rmdup -g /APA/PAC_3seq_diffana/S1960.tissue.txt -o tissue_specific
+Rscript ../bin/specific_APA.R  -i /APA/AFreview/PAC_3seq_hq/region_dis_addStrand/PDUI/SRP115041_ab22.intersect.3UTR.annoTranscript_ratio.tag.PDUI_rmdup -g /APA/PAC_3seq_diffana/S1960.tissue.txt -s /APA/PAC_3seq_diffana/S1960.subpop.txt -o tissue_specific --tau 0.5 -c 8
+
+读取 PDUI 矩阵...
+读取组织分组...
+读取亚群分组...
+样本: 1960, 组织: 8, 亚群: 7
+进行 Kruskal-Wallis 检验...
+  |======================================================================| 100%
+
+显著转录本: 8851
+计算组织均值矩阵...
+Tau >= 0.50 的高特异性基因 (忽略亚群): 819
+组织特异性基因列表已输出（忽略亚群）
+计算各亚群内的组织特异性...
+保守组织特异性基因（所有亚群一致）: 24
+绘制热图（基于组织均值）...
+null device
+          1
+热图已保存
+
+===== 全部完成 =====
+输出文件:
+  -  tissue_specific _Tau_results.txt (完整结果表)
+  -  tissue_specific _barplot.pdf (组织特异基因数量柱状图)
+  -  tissue_specific _heatmap.pdf
+  - *_specific_genes.txt (按组织/组织-亚群的特异基因列表)
+  -  tissue_specific _conserved_across_subgroups.txt (所有亚群一致的组织特异基因)
+这些基因列表可直接用于后续 GO 富集分析。
+
+
+Rscript ../bin/tua_distrbution.R
+
+Rscript /APA/AFreview/diffExpression_vs_diffUsage/bin/GO_significant_output.R LMAN_agriGO LMAN_agriGO
