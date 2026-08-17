@@ -78,7 +78,7 @@ done
 #lbls=(${lbls//[, ;]/ });
 
 ##samfiles=$(find $indir -maxdepth 1 -name "*.bam*" -type f)
-<<BLOCK
+
 ## 判断文件是否存在
 if [ ! -f $chrfa ]; then
     echo "$chrfa not found!"
@@ -193,8 +193,8 @@ rm all.PA.bed all.PA.bed.tmp all.PA.bed.tmp2
 
 #[szhou@login01 test1]$ cat all.PA.uniq.bed
 #chr1    96      97      .        1      -  第5列是score
-BLOCK
-cd $odir #此为增加
+
+#cd $odir #此为增加
 echo ">>> $(date) - PA2PAC (bedtools merge) >> all.PAC.bed"
 ## PA2PAC: 以dist距离合并
 # 以下两个结果一样
